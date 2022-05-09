@@ -23,6 +23,8 @@ class Result {
         // Write your code here
             int chance = 0;
             chance = recursion(n, chance);
+        
+            //Below commented approach is non recursive way.
             // while(true){
             //     long tempN = n;
             //     if(isPowerOfTwo(n)){
@@ -44,9 +46,6 @@ class Result {
             //     }
             // }
 
-            
-
-
             return (chance == 0) ? "Louise" : "Richard";
         }
 
@@ -61,14 +60,6 @@ class Result {
                 return recursion(n/2, chance);
             }else if(n>1){
                 long powerOf2JustBeforeN = findPowerOf2JustBeforeN(n);
-                // long i = (n%2 == 0) ? n-2 : n-1;
-                // for(;i>=2;i-=2){
-                //     if(isPowerOfTwo(i)){
-                //         chance = (chance == 0) ? 1 : 0;
-                //         return recursion(n-i, chance);
-                //     }
-
-                // }
                 chance = (chance == 0) ? 1 : 0;
                 return recursion(n-powerOf2JustBeforeN, chance);
             }else{
@@ -81,6 +72,8 @@ class Result {
             double log2 = (Math.log(n) / Math.log(2));
             long longOfLog2 = (long) log2;
             return (log2 == longOfLog2);
+            
+            //Below are two ways to check if a number is power of two or not.
             // return (n & (n-1)) == 0;
             // while(n%2==0){
             //     n=n/2;
